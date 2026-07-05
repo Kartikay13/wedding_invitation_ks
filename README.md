@@ -2,8 +2,8 @@
 
 A single-page, mobile-first wedding invitation with a tap-to-open door animation,
 background music, live countdown, event timeline, Google Maps buttons for both
-venues, a photo gallery, and a WhatsApp-based RSVP. No app, database, or server
-needed — it's one HTML file you can open directly or host for free.
+venues, and a photo gallery. No app, database, or server needed — it's one HTML
+file you can open directly or host for free.
 
 ---
 
@@ -29,9 +29,9 @@ single `WEDDING = { ... }` object with **all** the editable content:
 names and relation lines (the `groom` / `bride` objects — each has a `name`
 and a `relation` like `"S/O Suresh Kumar Sharma & Rajo Devi Sharma"`), the
 countdown date/time, calendar details, both venue addresses, the event
-schedule, the WhatsApp number, and the list of gallery photo filenames.
-You should not need to touch any HTML or CSS to make changes — just edit
-values inside that object and save.
+schedule, and the list of gallery photo filenames. You should not need to
+touch any HTML or CSS to make changes — just edit values inside that
+object and save.
 
 ---
 
@@ -42,16 +42,23 @@ Drop your images into the `assets/photos/` folder using these exact filenames
 
 | Filename                | Used for                          |
 |-------------------------|------------------------------------|
-| `engagement.jpg`        | "Our Story" section, left photo    |
-| `couple.jpg`            | "Our Story" section, right photo   |
-| `family-groom.jpg`      | "Our Families" section — Kartikay with his parents & siblings |
-| `family-bride.jpg`      | "Our Families" section — Shivani with her parents & siblings |
-| `photo1.jpg` … `photo6.jpg` | Gallery grid (6 photos)         |
-| `hero-share.jpg`        | Optional — thumbnail shown when the link is shared on WhatsApp/social media |
+| `engagement.jpg`        | "Our Story" — left photo (portrait frame) |
+| `couple.jpg`            | "Our Story" — right photo (landscape frame) |
+| `family-groom.jpg`      | "Our Families" — Kartikay with his parents (landscape frame) |
+| `family-bride.jpg`      | "Our Families" — Shivani's family (landscape frame) |
+| `photo1.jpg` … `photo5.jpg` | Gallery (portrait frames) |
+| `photo6.jpg`            | Gallery (landscape frame) |
+| `hero-share.jpg`        | Thumbnail shown when the link is shared on WhatsApp/social media — see note below |
+
+**About frame shapes:** each slot has a "portrait" or "landscape" frame that
+matches the real dimensions you gave me, so photos display in full without
+odd cropping. If you swap in a photo with a different orientation, open
+`index.html`, find the `storyPhotos` / `familyPhotos` / `galleryPhotos`
+arrays near the top of the `<script>`, and change that photo's
+`orientation` to `"portrait"` or `"landscape"` to match.
 
 Until you add a photo, that slot shows a neat placeholder frame with the
-expected filename, so the page still looks complete. Square-ish photos
-(roughly 1000×1000px or larger, JPG) work best.
+expected filename, so the page still looks complete.
 
 To use different filenames or add more gallery photos, edit the
 `galleryPhotos` array in the `WEDDING` object.
@@ -109,14 +116,31 @@ picked above — each has a simple "Add custom domain" option in settings.
 
 ---
 
-## 6. How the RSVP works
+## 6. Getting the link preview thumbnail to show up
 
-There's no form service or backend — tapping "Send RSVP on WhatsApp" simply
-opens WhatsApp with a pre-filled message (name, attendance, which functions
-they'll join, and any note) addressed to the number in `whatsappNumber`
-inside the `WEDDING` object (currently your father's number). The guest just
-hits send in WhatsApp. Change the number there if you'd like RSVPs to go
-elsewhere.
+Two things were causing the missing thumbnail:
+
+1. **The link you shared was the GitHub *settings* page, not your live
+   site.** `.../settings/pages` is only visible to you when logged into
+   GitHub — it's not the public invitation. Open that same Settings → Pages
+   screen and look for a green box that says "Your site is live at
+   `https://kartikay13.github.io/wedding_invitation_ks/`" — **that** green
+   link is the one to share with guests.
+2. **The preview image needs to be small.** I've pointed `og:image` at
+   `https://kartikay13.github.io/wedding_invitation_ks/assets/photos/hero-share.jpg`
+   in `index.html` (double-check that matches your actual repo name/username
+   exactly, capitalization included, and fix it there if not). But your
+   `hero-share.jpg` is a 6000×4000 original — most likely several MB —
+   and WhatsApp's crawler often times out or refuses images that large.
+   **Resize it to roughly 1200×800px and compress it to under ~300KB**
+   (any free tool like squoosh.app or tinypng.com works) before re-uploading.
+
+WhatsApp also **caches link previews aggressively** per URL. After fixing
+the image, sending the exact same link again may still show the old
+(missing) preview for a while. To force a fresh check: paste the link into
+Facebook's Sharing Debugger at `developers.facebook.com/tools/debug/` and
+click "Scrape Again," or simply share the link in a chat that's never seen
+it before.
 
 ---
 
@@ -124,7 +148,6 @@ elsewhere.
 
 Just double-click `index.html` to open it in any browser first — everything
 except the music (browsers block local-file audio playback in some cases)
-and the WhatsApp button (needs to be opened on a phone, or WhatsApp Web on
-desktop) will work exactly as it will once hosted. Once it's uploaded to
-GitHub Pages/Netlify/Vercel, test the real link on an actual phone (both an
+will work exactly as it will once hosted. Once it's uploaded to GitHub
+Pages/Netlify/Vercel, test the real link on an actual phone (both an
 iPhone and an Android if you can) before sending it to guests.

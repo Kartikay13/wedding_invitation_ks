@@ -8,7 +8,12 @@
 <meta name="theme-color" content="#7C1F2E">
 <meta property="og:title" content="Kartikay &amp; Shivani's Wedding">
 <meta property="og:description" content="11 – 13 November 2026 · Hamirpur, Himachal Pradesh">
-<meta property="og:image" content="assets/photos/hero-share.jpg">
+<meta property="og:image" content="https://kartikay13.github.io/wedding_invitation_ks/assets/photos/hero-share.jpg">
+<meta property="og:url" content="https://kartikay13.github.io/wedding_invitation_ks/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kartikay &amp; Shivani's Wedding">
+<meta name="twitter:image" content="https://kartikay13.github.io/wedding_invitation_ks/assets/photos/hero-share.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%94%EF%B8%8F%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,6 +72,7 @@ img{max-width:100%; display:block;}
   font-weight:600;
 }
 .eyebrow-row{display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:2px;}
+.countdown-sub{font-family:var(--font-utility); font-size:11px; color:var(--ink-soft); margin-top:4px; letter-spacing:.02em;}
 .sprig{width:44px; height:22px; color:inherit; flex:0 0 auto; opacity:.85;}
 .sprig.flip{transform:scaleX(-1);}
 .amp{font-family:var(--font-script); color:var(--gold); padding:0 6px; font-size:1.15em;}
@@ -230,18 +236,23 @@ main{max-width:var(--container); margin:0 auto; position:relative;}
 
 /* ---------- Story / Family (polaroids) ---------- */
 .story-text{font-size:16px; line-height:1.9; color:var(--ink); max-width:480px; margin:16px auto 26px;}
-.story-photos{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+.story-photos{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; align-items:center;}
 .polaroid{
-  background:#fff; padding:8px 8px 22px; box-shadow:0 8px 22px rgba(58,46,34,0.18);
-  width:150px; transform:rotate(-3deg);
+  background:#fff; padding:9px 9px 22px; box-shadow:0 8px 22px rgba(58,46,34,0.18);
+  width:190px; transform:rotate(-3deg);
 }
+.polaroid.landscape{width:285px;}
 .polaroid:nth-child(2){transform:rotate(3deg);}
-.polaroid .frame{width:100%; aspect-ratio:1/1.1; background:var(--ivory-deep); overflow:hidden; position:relative;}
+.polaroid:nth-child(3){transform:rotate(-2deg);}
+.polaroid .frame{width:100%; aspect-ratio:4/5; background:var(--ivory-deep); overflow:hidden; position:relative;}
+.polaroid .frame.landscape{aspect-ratio:3/2;}
+.polaroid .frame.portrait{aspect-ratio:2/3;}
 .polaroid .frame img{width:100%; height:100%; object-fit:cover;}
 .ph-fallback{
-  position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
   color:var(--gold); background:linear-gradient(135deg,var(--ivory-deep),var(--blush));
 }
+.frame .ph-fallback{position:absolute; inset:0;}
 .ph-fallback span{font-family:var(--font-utility); font-size:9px; color:var(--ink-soft); letter-spacing:.05em;}
 .polaroid .cap{display:block; text-align:center; margin-top:8px; font-family:var(--font-script); color:var(--ink-soft); font-size:14px;}
 
@@ -272,22 +283,12 @@ main{max-width:var(--container); margin:0 auto; position:relative;}
 .venue-card .btn{margin-top:16px;}
 
 /* ---------- Gallery ---------- */
-.gallery-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:26px;}
-.g-item{aspect-ratio:1/1; overflow:hidden; border-radius:6px; position:relative; background:var(--ivory-deep);}
-.g-item img{width:100%; height:100%; object-fit:cover;}
-
-/* ---------- RSVP ---------- */
-#rsvpForm{text-align:left; margin-top:26px; display:flex; flex-direction:column; gap:16px;}
-.field label{font-family:var(--font-utility); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:6px;}
-.field input[type="text"], .field select, .field textarea{
-  width:100%; font-family:var(--font-display); font-size:16px; padding:11px 12px;
-  border:1px solid var(--gold); border-radius:8px; background:var(--ivory); color:var(--ink);
-}
-.field textarea{resize:vertical; min-height:70px; font-size:14px;}
-.checks{display:flex; flex-direction:column; gap:8px;}
-.checks label{display:flex; align-items:center; gap:9px; font-family:var(--font-utility); font-size:13px; color:var(--ink); text-transform:none; letter-spacing:0;}
-.checks input{accent-color:var(--maroon); width:16px; height:16px;}
-#rsvpForm .btn{align-self:center; margin-top:6px; border:none;}
+.gallery-grid{columns:3; column-gap:8px; margin-top:26px;}
+.g-item{break-inside:avoid; margin-bottom:8px; border-radius:8px; overflow:hidden; background:var(--ivory-deep); position:relative;}
+.g-item img{width:100%; height:auto; display:block;}
+.g-item .ph-fallback{width:100%;}
+.g-item .ph-fallback.portrait{aspect-ratio:2/3;}
+.g-item .ph-fallback.landscape{aspect-ratio:3/2;}
 
 /* ---------- Footer ---------- */
 footer{padding:46px 24px 60px; text-align:center;}
@@ -340,10 +341,6 @@ footer .note{font-family:var(--font-utility); font-size:11px; color:var(--ink-so
     <path d="M14 40V18a10 10 0 0120 0v22" stroke="currentColor" stroke-width="2"/>
     <line x1="10" y1="40" x2="38" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     <circle cx="24" cy="34" r="2.2" fill="currentColor"/>
-  </symbol>
-  <symbol id="ic-whatsapp" viewBox="0 0 32 32">
-    <path d="M16 3C9 3 3 9 3 16c0 2.5.7 4.8 1.9 6.8L3 29l6.4-1.7A13 13 0 0016 29c7 0 13-6 13-13S23 3 16 3z" stroke="currentColor" stroke-width="1.6"/>
-    <path d="M11 11c.3-.7 1-2 1.6-2 .5 0 1 0 1.3.7.4.8 1.2 2.6 1.3 2.8.1.2.2.5 0 .8-.1.3-.2.4-.4.6-.2.2-.4.4-.6.6-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.3 2.7 1.7 3.1 1.9.4.2.7.1.9-.1.3-.3.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2.1 1 2.5 1.2.4.2.6.3.7.5.1.2.1 1.1-.3 2.2-.4 1-2.2 2-3 2.1-.8.1-1.5.4-4.9-1-3.9-1.7-6.4-5.6-6.6-5.9-.2-.3-1.6-2.1-1.6-4s1-2.9 1.4-3.3z" fill="currentColor"/>
   </symbol>
   <symbol id="ic-pin" viewBox="0 0 24 24">
     <path d="M12 22s7-7.4 7-12.5A7 7 0 105 9.5C5 14.6 12 22 12 22z" stroke="currentColor" stroke-width="1.6"/>
@@ -458,7 +455,6 @@ footer .note{font-family:var(--font-utility); font-size:11px; color:var(--ink-so
     <a href="#events">Celebrations</a>
     <a href="#venue">Venue</a>
     <a href="#gallery">Gallery</a>
-    <a href="#rsvp">RSVP</a>
   </div>
 </nav>
 
@@ -467,10 +463,10 @@ footer .note{font-family:var(--font-utility); font-size:11px; color:var(--ink-so
     <div class="hero-petals" id="petals"></div>
     <div class="marigold-garland"></div>
     <p class="eyebrow">The Countdown Begins</p>
+    <p class="countdown-sub" id="countdownLabel"></p>
     <div class="countdown" id="countdown"></div>
     <div class="btn-row">
       <a class="btn solid" id="calBtn" href="#" target="_blank" rel="noopener"><svg class="icon"><use href="#ic-cal"/></svg>Add to Calendar</a>
-      <a class="btn" href="#rsvp"><svg class="icon"><use href="#ic-whatsapp"/></svg>RSVP</a>
     </div>
   </header>
 
@@ -479,16 +475,7 @@ footer .note{font-family:var(--font-utility); font-size:11px; color:var(--ink-so
     <div class="eyebrow-row"><svg class="sprig"><use href="#fl-sprig"/></svg><p class="eyebrow">Our Story</p><svg class="sprig flip"><use href="#fl-sprig"/></svg></div>
     <h2>A Union Blessed in the Hills</h2>
     <p class="story-text">Between two families and the mountains of Himachal, a promise was made — and this November, under pine trees and a quiet sky full of stars, that promise becomes a marriage. Three days of colour, music, and blessings await, and we would be honoured to have you there for every bit of it.</p>
-    <div class="story-photos">
-      <div class="polaroid">
-        <div class="frame"><img src="assets/photos/engagement.jpg" alt="Engagement" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="ph-fallback" style="display:none;"><svg class="icon"><use href="#ic-camera"/></svg><span>engagement.jpg</span></div></div>
-        <span class="cap">The Engagement</span>
-      </div>
-      <div class="polaroid">
-        <div class="frame"><img src="assets/photos/couple.jpg" alt="Kartikay and Shivani" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="ph-fallback" style="display:none;"><svg class="icon"><use href="#ic-camera"/></svg><span>couple.jpg</span></div></div>
-        <span class="cap">Just Us</span>
-      </div>
-    </div>
+    <div class="story-photos" id="storyPhotos"></div>
   </section>
 
   <section id="family" class="section reveal">
@@ -496,16 +483,7 @@ footer .note{font-family:var(--font-utility); font-size:11px; color:var(--ink-so
     <div class="eyebrow-row"><svg class="sprig"><use href="#fl-sprig"/></svg><p class="eyebrow">Our Families</p><svg class="sprig flip"><use href="#fl-sprig"/></svg></div>
     <h2>With Those Who Raised Us</h2>
     <p class="story-text">Every celebration means more with family close by. Here's a glimpse of the two homes coming together this November.</p>
-    <div class="story-photos">
-      <div class="polaroid">
-        <div class="frame"><img src="assets/photos/family-groom.jpg" alt="Kartikay's family" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="ph-fallback" style="display:none;"><svg class="icon"><use href="#ic-camera"/></svg><span>family-groom.jpg</span></div></div>
-        <span class="cap">Kartikay's Family</span>
-      </div>
-      <div class="polaroid">
-        <div class="frame"><img src="assets/photos/family-bride.jpg" alt="Shivani's family" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="ph-fallback" style="display:none;"><svg class="icon"><use href="#ic-camera"/></svg><span>family-bride.jpg</span></div></div>
-        <span class="cap">Shivani's Family</span>
-      </div>
-    </div>
+    <div class="story-photos" id="familyPhotos"></div>
   </section>
 
   <section id="events" class="section reveal">
@@ -530,41 +508,6 @@ footer .note{font-family:var(--font-utility); font-size:11px; color:var(--ink-so
     <div class="gallery-grid" id="galleryGrid"></div>
   </section>
 
-  <section id="rsvp" class="section reveal">
-    <svg class="swag"><use href="#fl-swag"/></svg>
-    <div class="eyebrow-row"><svg class="sprig"><use href="#fl-sprig"/></svg><p class="eyebrow">RSVP</p><svg class="sprig flip"><use href="#fl-sprig"/></svg></div>
-    <h2>Save Us a Seat at the Celebration</h2>
-    <p class="story-text" style="margin-bottom:0;">Kindly respond by 20 October 2026 so we can plan every detail with you in mind.</p>
-    <form id="rsvpForm">
-      <div class="field">
-        <label for="gname">Your Name</label>
-        <input type="text" id="gname" placeholder="e.g. Rohan &amp; Family" required>
-      </div>
-      <div class="field">
-        <label for="gattend">Will You Join Us?</label>
-        <select id="gattend">
-          <option value="Joyfully Accepting 🎉">Joyfully Accepting 🎉</option>
-          <option value="Attending with Family">Attending with Family</option>
-          <option value="Regretfully Declining">Regretfully Declining</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Celebrations You'll Attend</label>
-        <div class="checks">
-          <label><input type="checkbox" value="Mehendi, Sangeet &amp; Cocktail (11 Nov)"> Mehendi, Sangeet &amp; Cocktail (11 Nov)</label>
-          <label><input type="checkbox" value="Haldi &amp; Dham (12 Nov Day)"> Haldi &amp; Dham (12 Nov Day)</label>
-          <label><input type="checkbox" value="Baraat &amp; Jaimala (12 Nov Evening)"> Baraat &amp; Jaimala (12 Nov Evening)</label>
-          <label><input type="checkbox" value="Vadhu Pravesh (13 Nov)"> Vadhu Pravesh (13 Nov)</label>
-        </div>
-      </div>
-      <div class="field">
-        <label for="gmsg">A Note for the Families (optional)</label>
-        <textarea id="gmsg" placeholder="Your blessings and wishes..."></textarea>
-      </div>
-      <button type="submit" class="btn solid"><svg class="icon"><use href="#ic-whatsapp"/></svg>Send RSVP on WhatsApp</button>
-    </form>
-  </section>
-
   <footer>
     <div class="monogram-small">Kartikay &amp; Shivani</div>
     <p class="tag" id="hashtagLine"></p>
@@ -579,16 +522,22 @@ footer .note{font-family:var(--font-utility); font-size:11px; color:var(--ink-so
 <script>
 /* ================================================================
    EDIT ME — everything on the page is generated from this object.
-   Change names, dates, venues, events, photos or the WhatsApp
-   number here; you should not need to touch the HTML/CSS above.
+   Change names, dates, venues, events, or photos here; you should
+   not need to touch the HTML/CSS above.
    ================================================================ */
 const WEDDING = {
   groom: { name: "Kartikay", relation: "S/O Suresh Kumar Sharma &amp; Rajo Devi Sharma" },
   bride: { name: "Shivani",  relation: "D/O Dinesh Kumar Sharma &amp; Geeta Devi" },
   hashtag: "#KartikayWedsShivani",
 
-  // ISO datetime with IST offset — used for the countdown + calendar link
-  countdownTarget: "2026-11-11T17:00:00+05:30",
+  // The moment the countdown counts down to: 5:00 PM IST on 11 Nov 2026.
+  // Written as explicit UTC values (IST is UTC+5:30, so 17:00 IST = 11:30 UTC)
+  // instead of a parsed date string — this avoids date-parsing quirks on
+  // older phone browsers and guarantees the same countdown for every guest
+  // regardless of their own device's timezone.
+  // Date.UTC(year, monthIndex[0=Jan], day, hour, minute, second)
+  countdownTargetUTC: Date.UTC(2026, 10, 11, 11, 30, 0),
+  countdownLabel: "5:00 PM, 11 November 2026 (IST)",
 
   calendar: {
     title: "Kartikay & Shivani's Wedding",
@@ -597,8 +546,6 @@ const WEDDING = {
     details: "Baraat departure 3 PM, Jaimala 8 PM at The Grand Palace, Main Chowk, Naraina, Bhota, Hamirpur, HP 176041.",
     location: "The Grand Palace, Main Chowk, Naraina, Bhota, Hamirpur, HP 176041"
   },
-
-  whatsappNumber: "919816043046",
 
   events: [
     { date:"11", month:"NOV", icon:"ic-mehendi", title:"Mehendi, Ladies Sangeet &amp; Cocktail Party", time:"Evening", desc:"An evening of henna, music and dance to open the celebrations." },
@@ -630,7 +577,24 @@ const WEDDING = {
   ],
 
   // Drop matching files into assets/photos/ — they appear automatically.
-  galleryPhotos: ["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg","photo6.jpg"]
+  // "orientation" just controls the frame shape (landscape/portrait) so photos
+  // aren't cropped oddly — set it to match each photo's real dimensions.
+  storyPhotos: [
+    { file:"engagement.jpg", caption:"The Engagement", orientation:"portrait" },
+    { file:"couple.jpg", caption:"Just Us", orientation:"landscape" }
+  ],
+  familyPhotos: [
+    { file:"family-groom.jpg", caption:"Kartikay's Parents", orientation:"landscape" },
+    { file:"family-bride.jpg", caption:"Shivani's Family", orientation:"landscape" }
+  ],
+  galleryPhotos: [
+    { file:"photo1.jpg", orientation:"portrait" },
+    { file:"photo2.jpg", orientation:"portrait" },
+    { file:"photo3.jpg", orientation:"portrait" },
+    { file:"photo4.jpg", orientation:"portrait" },
+    { file:"photo5.jpg", orientation:"portrait" },
+    { file:"photo6.jpg", orientation:"portrait" }
+  ]
 };
 
 /* ---------------- render: names, relations, hashtag ---------------- */
@@ -639,6 +603,7 @@ document.getElementById('gGroomRel').innerHTML = WEDDING.groom.relation;
 document.getElementById('gBrideName').textContent = WEDDING.bride.name;
 document.getElementById('gBrideRel').innerHTML = WEDDING.bride.relation;
 document.getElementById('hashtagLine').textContent = WEDDING.hashtag;
+document.getElementById('countdownLabel').textContent = 'until ' + WEDDING.countdownLabel;
 
 /* ---------------- render: timeline ---------------- */
 const timelineEl = document.getElementById('timeline');
@@ -668,14 +633,31 @@ venuesEl.innerHTML = WEDDING.venues.map(v => `
   </div>
 `).join('');
 
-/* ---------------- render: gallery ---------------- */
+/* ---------------- render: polaroid photo groups (Our Story / Family) ---------------- */
+function renderPolaroids(containerId, items){
+  const el = document.getElementById(containerId);
+  if(!el) return;
+  el.innerHTML = items.map(p => `
+    <div class="polaroid ${p.orientation}">
+      <div class="frame ${p.orientation}">
+        <img src="assets/photos/${p.file}" alt="${p.caption}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="ph-fallback" style="display:none;"><svg class="icon"><use href="#ic-camera"/></svg><span>${p.file}</span></div>
+      </div>
+      <span class="cap">${p.caption}</span>
+    </div>
+  `).join('');
+}
+renderPolaroids('storyPhotos', WEDDING.storyPhotos);
+renderPolaroids('familyPhotos', WEDDING.familyPhotos);
+
+/* ---------------- render: gallery (masonry, no cropping) ---------------- */
 const galEl = document.getElementById('galleryGrid');
-galEl.innerHTML = WEDDING.galleryPhotos.map(f => `
+galEl.innerHTML = WEDDING.galleryPhotos.map(p => `
   <div class="g-item">
-    <img src="assets/photos/${f}" alt="Wedding memory" loading="lazy"
+    <img src="assets/photos/${p.file}" alt="Wedding memory" loading="lazy"
       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-    <div class="ph-fallback" style="display:none; position:absolute; inset:0;">
-      <svg class="icon"><use href="#ic-camera"/></svg><span>${f}</span>
+    <div class="ph-fallback ${p.orientation}" style="display:none;">
+      <svg class="icon"><use href="#ic-camera"/></svg><span>${p.file}</span>
     </div>
   </div>
 `).join('');
@@ -687,7 +669,7 @@ document.getElementById('calBtn').href =
 
 /* ---------------- countdown ---------------- */
 const countdownEl = document.getElementById('countdown');
-const target = new Date(WEDDING.countdownTarget).getTime();
+const target = WEDDING.countdownTargetUTC;
 function renderCountdown(){
   const now = Date.now();
   const diff = Math.max(0, target - now);
@@ -799,29 +781,14 @@ const io = new IntersectionObserver((entries)=>{
 }, { threshold: 0.15 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* ---------------- nav active state ---------------- */
-const navLinks = document.querySelectorAll('#mainNav a');
+/* ---------------- nav active state (only for in-page section links) ---------------- */
+const navLinks = document.querySelectorAll('#mainNav a[href^="#"]');
 const navSections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href')));
 window.addEventListener('scroll', () => {
   let idx = 0;
   navSections.forEach((sec,i) => { if(sec && sec.getBoundingClientRect().top < 140) idx = i; });
   navLinks.forEach((a,i) => a.classList.toggle('active', i===idx));
 }, { passive:true });
-
-/* ---------------- RSVP -> WhatsApp ---------------- */
-document.getElementById('rsvpForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  const name = document.getElementById('gname').value.trim() || 'Guest';
-  const attend = document.getElementById('gattend').value;
-  const checks = Array.from(document.querySelectorAll('.checks input:checked')).map(c => c.value);
-  const msg = document.getElementById('gmsg').value.trim();
-
-  let text = `Wedding RSVP — Kartikay & Shivani\n\nName: ${name}\nResponse: ${attend}`;
-  if(checks.length) text += `\nCelebrations: ${checks.join(', ')}`;
-  if(msg) text += `\nMessage: ${msg}`;
-
-  window.open(`https://wa.me/${WEDDING.whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank');
-});
 </script>
 </body>
 </html>
