@@ -28,11 +28,11 @@
 :root{
   --ivory:#FBF5EA;
   --ivory-deep:#F2E6CF;
-  --ink:#3A2E22;
-  --ink-soft:#7A6A54;
+  --ink:#140F09;
+  --ink-soft:#3D3226;
   --maroon:#7C1F2E;
   --maroon-deep:#54121C;
-  --gold:#B8863B;
+  --gold:#8C6420;
   --gold-light:#D9B45C;
   --pine:#3F5443;
   --blush:#E7C6C2;
@@ -68,12 +68,12 @@ img{max-width:100%; display:block;}
   font-family:var(--font-utility);
   text-transform:uppercase;
   letter-spacing:0.26em;
-  font-size:11px;
+  font-size:12px;
   color:var(--gold);
-  font-weight:600;
+  font-weight:700;
 }
 .eyebrow-row{display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:2px;}
-.countdown-sub{font-family:var(--font-utility); font-size:11px; color:var(--ink-soft); margin-top:4px; letter-spacing:.02em;}
+.countdown-sub{font-family:var(--font-utility); font-size:12px; color:var(--ink-soft); margin-top:4px; letter-spacing:.02em; font-weight:500;}
 .sprig{width:44px; height:22px; color:inherit; flex:0 0 auto; opacity:.85;}
 .sprig.flip{transform:scaleX(-1);}
 .amp{font-family:var(--font-script); color:var(--gold); padding:0 6px; font-size:1.15em;}
@@ -150,7 +150,7 @@ img{max-width:100%; display:block;}
 .wreath-svg{position:absolute; inset:0; width:100%; height:100%;}
 .monogram{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-style:italic; font-size:24px; color:var(--maroon);}
 
-.gate-eyebrow{font-family:var(--font-utility); letter-spacing:.22em; font-size:10px; text-transform:uppercase; color:var(--gold); font-weight:600; margin-top:4px;}
+.gate-eyebrow{font-family:var(--font-utility); letter-spacing:.22em; font-size:11px; text-transform:uppercase; color:var(--gold); font-weight:700; margin-top:4px;}
 .gate-eyebrow-deva{font-family:var(--font-deva); letter-spacing:.03em; font-size:12px; color:var(--gold); font-weight:600; margin-top:3px;}
 .gate-shloka{font-family:var(--font-deva); font-size:13.5px; color:var(--maroon); max-width:270px; margin:10px auto 0; line-height:1.9; font-weight:500;}
 .gate-welcome{font-family:var(--font-utility); font-size:12.5px; color:var(--ink); max-width:270px; margin:10px auto; line-height:1.7;}
@@ -161,7 +161,7 @@ img{max-width:100%; display:block;}
 .amp-row{font-family:var(--font-script); font-size:26px; color:var(--gold); line-height:1; margin:2px 0;}
 
 .gate-date{font-size:18px; color:var(--maroon); margin-top:12px; letter-spacing:.03em;}
-.gate-loc{font-family:var(--font-utility); font-size:10.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--gold); margin-top:3px;}
+.gate-loc{font-family:var(--font-utility); font-size:11.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--gold); margin-top:3px; font-weight:600;}
 
 .tap-cta{
   margin-top:18px; display:inline-flex; align-items:center; gap:9px;
@@ -202,7 +202,7 @@ img{max-width:100%; display:block;}
 .nav-inner::-webkit-scrollbar{display:none;}
 .nav-inner a{
   flex:0 0 auto; font-family:var(--font-utility); font-size:12px; letter-spacing:.06em;
-  text-decoration:none; color:var(--ink-soft); padding:8px 14px; border-radius:999px; border:1px solid var(--ivory-deep);
+  text-decoration:none; color:var(--ink-soft); padding:8px 14px; border-radius:999px; border:1px solid var(--ivory-deep); font-weight:600;
   white-space:nowrap; transition:all .2s ease;
 }
 .nav-inner a.active, .nav-inner a:hover{background:var(--maroon); color:var(--ivory); border-color:var(--maroon);}
@@ -222,7 +222,7 @@ main{max-width:var(--container); margin:0 auto; position:relative;}
 .countdown{display:flex; justify-content:center; gap:10px; margin:16px auto 6px; position:relative; z-index:1;}
 .cbox{background:var(--ivory-deep); border:1px solid var(--gold); border-radius:10px; padding:10px 4px; width:64px;}
 .cbox .num{font-size:24px; color:var(--maroon); display:block; line-height:1;}
-.cbox .lab{font-family:var(--font-utility); font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft);}
+.cbox .lab{font-family:var(--font-utility); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); font-weight:600;}
 
 .btn-row{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:20px; position:relative; z-index:1;}
 .btn{
@@ -239,6 +239,7 @@ main{max-width:var(--container); margin:0 auto; position:relative;}
 
 /* ---------- Story / Family (polaroids) ---------- */
 .story-text{font-size:16px; line-height:1.9; color:var(--ink); max-width:480px; margin:16px auto 26px;}
+.story-text + .story-text{margin-top:-10px;}
 .story-photos{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; align-items:center;}
 .polaroid{
   background:#fff; padding:9px 9px 22px; box-shadow:0 8px 22px rgba(58,46,34,0.18);
@@ -256,7 +257,7 @@ main{max-width:var(--container); margin:0 auto; position:relative;}
   color:var(--gold); background:linear-gradient(135deg,var(--ivory-deep),var(--blush));
 }
 .frame .ph-fallback{position:absolute; inset:0;}
-.ph-fallback span{font-family:var(--font-utility); font-size:9px; color:var(--ink-soft); letter-spacing:.05em;}
+.ph-fallback span{font-family:var(--font-utility); font-size:10px; color:var(--ink-soft); letter-spacing:.05em; font-weight:500;}
 .polaroid .cap{display:block; text-align:center; margin-top:8px; font-family:var(--font-script); color:var(--ink-soft); font-size:14px;}
 
 /* ---------- Timeline ---------- */
@@ -265,15 +266,15 @@ main{max-width:var(--container); margin:0 auto; position:relative;}
 .t-item{display:flex; gap:16px; margin-bottom:26px; position:relative;}
 .t-date{flex:0 0 58px; text-align:center; z-index:1;}
 .t-date .d{font-size:24px; color:var(--maroon); display:block; line-height:1;}
-.t-date .m{font-family:var(--font-utility); font-size:9px; letter-spacing:.12em; color:var(--ink-soft); text-transform:uppercase;}
+.t-date .m{font-family:var(--font-utility); font-size:10px; letter-spacing:.12em; color:var(--ink-soft); text-transform:uppercase; font-weight:600;}
 .t-icon{
   flex:0 0 40px; height:40px; border-radius:50%; background:var(--ivory-deep); border:1px solid var(--gold);
   display:flex; align-items:center; justify-content:center; color:var(--maroon); z-index:1;
 }
 .t-body{flex:1; padding-top:2px;}
-.t-body h3{font-size:19px; color:var(--ink);}
-.t-body .time{font-family:var(--font-utility); font-size:11px; letter-spacing:.08em; color:var(--gold); text-transform:uppercase; display:block; margin-top:3px;}
-.t-body .desc{font-size:13.5px; color:var(--ink-soft); margin-top:4px; line-height:1.6;}
+.t-body h3{font-size:19px; color:var(--ink); font-weight:600;}
+.t-body .time{font-family:var(--font-utility); font-size:11px; letter-spacing:.06em; color:var(--gold); text-transform:uppercase; display:block; margin-top:3px; font-weight:500;}
+.t-body .t-loc{font-family:var(--font-utility); font-size:12.5px; color:var(--ink-soft); margin-top:4px; letter-spacing:.02em;}
 
 /* ---------- Venue ---------- */
 .venue-watermark{position:absolute; top:10px; left:0; width:100%; height:80px; color:var(--pine); opacity:.1; z-index:-1;}
@@ -304,7 +305,7 @@ main{max-width:var(--container); margin:0 auto; position:relative;}
 footer{padding:46px 24px 60px; text-align:center;}
 .monogram-small{font-family:var(--font-display); font-style:italic; font-size:22px; color:var(--gold);}
 footer .tag{font-family:var(--font-utility); font-size:13px; letter-spacing:.12em; color:var(--maroon); margin-top:10px;}
-footer .note{font-family:var(--font-utility); font-size:11px; color:var(--ink-soft); margin-top:16px;}
+footer .note{font-family:var(--font-utility); font-size:12px; color:var(--ink-soft); margin-top:16px; font-weight:500;}
 
 @media (min-width:560px){
   .venues{flex-direction:row;}
@@ -488,8 +489,10 @@ footer .note{font-family:var(--font-utility); font-size:11px; color:var(--ink-so
   <section id="story" class="section reveal">
     <svg class="swag"><use href="#fl-swag"/></svg>
     <div class="eyebrow-row"><svg class="sprig"><use href="#fl-sprig"/></svg><p class="eyebrow">Our Story</p><svg class="sprig flip"><use href="#fl-sprig"/></svg></div>
-    <h2>A Union Blessed in the Hills</h2>
-    <p class="story-text">Between two families and the mountains of Himachal, a promise was made — and this November, under pine trees and a quiet sky full of stars, that promise becomes a marriage. Three days of colour, music, and blessings await, and we would be honoured to have you there for every bit of it.</p>
+    <h2>A New Beginning, Surrounded by Love</h2>
+    <p class="story-text">This November, in Hamirpur, Himachal Pradesh, we begin a beautiful new chapter together.</p>
+    <p class="story-text">With the love, blessings, and excitement of our families, Kartikay and Shivani invite you to celebrate their wedding. Over three days, we look forward to sharing traditions, music, laughter, good food, and many unforgettable moments with the people who mean the most to us.</p>
+    <p class="story-text">Your presence and blessings will make our celebration truly complete.</p>
     <div class="story-photos" id="storyPhotos"></div>
   </section>
 
@@ -564,28 +567,29 @@ const WEDDING = {
   },
 
   events: [
-    { date:"11", month:"NOV", icon:"ic-mehendi", title:"Mehendi &amp; Ladies Sangeet", time:"Evening", desc:"An evening of henna, music and dance to open the celebrations." },
-    { date:"12", month:"NOV", icon:"ic-haldi", title:"Haldi Ceremony", time:"Morning", desc:"A joyful, turmeric-soaked start to the big day." },
-    { date:"12", month:"NOV", icon:"ic-dham", title:"Traditional Dham &amp; Family Celebrations", time:"Afternoon", desc:"A Himachali feast shared with family and friends." },
-    { date:"12", month:"NOV", icon:"ic-sehra", title:"Sehra Bandi", time:"2:00 PM", desc:"The groom is adorned ahead of the baraat." },
-    { date:"12", month:"NOV", icon:"ic-baraat", title:"Baraat Departure", time:"3:00 PM", desc:"The groom's procession sets off for the venue, dhol in tow." },
-    { date:"12", month:"NOV", icon:"ic-jaimala", title:"Jaimala", time:"8:00 PM", desc:"The exchange of garlands at The Grand Palace." },
-    { date:"13", month:"NOV", icon:"ic-vadhu", title:"Vadhu Pravesh", time:"Around 8:00 AM", desc:"The bride's welcome into her new home." }
+    { date:"11", month:"NOV", icon:"ic-mehendi", title:"Mehendi", time:"Afternoon", location:"Family Residence" },
+    { date:"11", month:"NOV", icon:"ic-mehendi", title:"Sangeet &amp; Cocktail Party", time:"Evening", location:"Family Residence" },
+    { date:"12", month:"NOV", icon:"ic-haldi", title:"Haldi Ceremony", time:"Morning", location:"Family Residence" },
+    { date:"12", month:"NOV", icon:"ic-dham", title:"Traditional Dham &amp; Family Celebrations", time:"Afternoon", location:"Family Residence" },
+    { date:"12", month:"NOV", icon:"ic-sehra", title:"Sehra Bandi", time:"2:00 PM", location:"Family Residence" },
+    { date:"12", month:"NOV", icon:"ic-baraat", title:"Baraat Departure", time:"3:00 PM", location:"Family Residence" },
+    { date:"12", month:"NOV", icon:"ic-jaimala", title:"Jaimala", time:"8:00 PM", location:"The Grand Palace" },
+    { date:"13", month:"NOV", icon:"ic-vadhu", title:"Vadhu Pravesh", time:"Around 8:00 AM", location:"Family Residence" }
   ],
 
   venues: [
     {
-      tag:"11 – 12 Nov · Till Baraat Departure",
+      tag:"11 – 13 Nov · Baraat Departure &amp; Vadhu Pravesh",
       name:"Family Residence",
-      desc:"Mehendi, Sangeet, Haldi, Dham &amp; Sehra Bandi",
+      desc:"Mehendi, Sangeet, Haldi, Dham, Sehra Bandi &amp; Vadhu Pravesh",
       address:"H143, Ward 8, Nayanagar, Hamirpur, Himachal Pradesh 177001",
       mapQuery:"H143, Ward 8, Nayanagar, Hamirpur, Himachal Pradesh 177001",
       mapUrl:"https://maps.app.goo.gl/vMDqk2jp7i9nxJRB7"
     },
     {
-      tag:"12 – 13 Nov · Baraat Onward",
+      tag:"12 Nov · Baraat &amp; Jaimala",
       name:"The Grand Palace",
-      desc:"Baraat Arrival, Jaimala &amp; Vadhu Pravesh",
+      desc:"Baraat Arrival &amp; Jaimala",
       address:"Main Chowk, Naraina, Bhota, Hamirpur, Himachal Pradesh 176041",
       mapQuery:"The Grand Palace, Main Chowk, Naraina, Bhota, Hamirpur, Himachal Pradesh 176041",
       mapUrl:"https://maps.app.goo.gl/uXoV4inbs4sHkkgu8"
@@ -633,7 +637,7 @@ timelineEl.innerHTML = WEDDING.events.map(e => `
     <div class="t-body">
       <h3>${e.title}</h3>
       <span class="time">${e.time}</span>
-      <p class="desc">${e.desc}</p>
+      <p class="t-loc">${e.location}</p>
     </div>
   </div>
 `).join('');
